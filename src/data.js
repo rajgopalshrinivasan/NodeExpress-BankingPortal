@@ -14,7 +14,7 @@ const users = JSON.parse(userData)
 //   }
 
 const writeJSON = () => {
-    
+    fs.writeFileSync(path.join(__dirname,'/json/accounts.json'),accounts ,'utf8')
   }
 
 module.exports  = {accounts,users,writeJSON }
