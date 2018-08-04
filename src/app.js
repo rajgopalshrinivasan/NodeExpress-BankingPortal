@@ -17,8 +17,10 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(3000)
-
+app.listen(3000, () => {
 console.log('PS Project Running on port 3000!')
+})
+
+
 
 
