@@ -55,9 +55,8 @@ app.get('/transfer',(req, res) => {
 })
 
 app.post('/transfer',(req, res) => {
-    const amount = parseInt(req.body.amount);
-    accounts[req.body.from].balance = accounts[req.body.from].balance  - amount;
-    accounts[req.body.to].balance = accounts[req.body.to].balance  + amount;
+    accounts[req.body.from].balance = accounts[req.body.from].balance  - req.body.amount;
+    accounts[req.body.to].balance = accounts[req.body.to].balance  + req.body.amount;
     const accountsJSON  = JSON.stringify(accounts)
 
     fs.writeFileSync(path.join(__dirname, 'json/accounts.json'),accountsJSON )
