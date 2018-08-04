@@ -68,9 +68,8 @@ app.get('/payment',(req, res) => {
 })
 
 app.post('/payment',(req, res) => {
-    const amount = parseInt(req.body.amount);
-    accounts.credit.balance = accounts.credit.balance - amount;
-    accounts.credit.available = accounts.credit.available + amount;
+    accounts.credit.balance = accounts.credit.balance - req.body.amount;
+    accounts.credit.available = accounts.credit.available + req.body.amount;
     const accountsJSON  = JSON.stringify(accounts)
 
     fs.writeFileSync(path.join(__dirname, 'json/accounts.json'),accountsJSON )
